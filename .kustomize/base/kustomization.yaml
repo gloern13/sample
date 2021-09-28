@@ -1,0 +1,16 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+commonLabels:
+  app.kubernetes.io/component: sample
+  app.kubernetes.io/name: sample
+
+images:
+  - name: sample
+    newTag: 1.0.0
+
+resources:
+  - conf
+  - service.yaml
+  - deployment.yaml
+

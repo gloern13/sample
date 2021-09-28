@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample
+spec:
+  selector: { }
+  template:
+    spec:
+      containers:
+        - name: sample
+          image: sample
+          env:
+            - name: HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: sample-config
+                  key: HOST
+            - name: PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: sample-config
+                  key: PORT
+          ports:
+            - hostPort: 80
+              containerPort: 80
+              protocol: TCP
