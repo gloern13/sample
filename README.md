@@ -1,3 +1,1 @@
 ### SAMPLE APPLICATION
-
-test app
